@@ -4,10 +4,11 @@ import { ObjectUtil } from 'jamyth-web-util';
 import { NavigationService } from 'util/NavigationService';
 import { Switch, Route } from 'react-router-dom';
 import { Style } from './Style';
+import { MerchantConfig } from 'merchant-conf/current/MerchantConfig';
 
 export const theme = extendTheme({
     config: {
-        initialColorMode: 'light',
+        initialColorMode: MerchantConfig.colorMode,
     },
 });
 

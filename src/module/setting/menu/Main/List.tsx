@@ -1,4 +1,4 @@
-import { Badge, Button, ButtonGroup, Flex, Heading } from '@chakra-ui/react';
+import { Badge, Button, ButtonGroup, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import { useSettingMenuState } from '../hooks';
 import { FaPen, FaTrash } from 'react-icons/fa';
@@ -7,6 +7,7 @@ import { useSettingMenuAction } from '../index';
 export const List = React.memo(() => {
     const menu = useSettingMenuState((state) => state.menu);
     const { openModal, deleteProduct } = useSettingMenuAction();
+    const backgroundColor = useColorModeValue('white', 'gray.700');
 
     if (!menu?.length) {
         return (
@@ -17,7 +18,7 @@ export const List = React.memo(() => {
     }
 
     return (
-        <Flex flexDirection="column" borderTopWidth="1px" borderBottomWidth="1px" backgroundColor="gray.700">
+        <Flex flexDirection="column" borderTopWidth="1px" borderBottomWidth="1px" backgroundColor={backgroundColor}>
             {menu &&
                 menu.map((product) => {
                     return (

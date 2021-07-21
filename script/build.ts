@@ -8,7 +8,7 @@ new WebpackBuilder({
     dynamicConfigResolvers: [
         {
             prefix: 'merchant-conf/current',
-            resolver: (env) => path.resolve(__dirname, `../src/merchant-conf/${env}`),
+            resolver: (env) => (env ? path.resolve(__dirname, `../src/merchant-conf/${env}`) : null),
         },
     ],
 }).run();
